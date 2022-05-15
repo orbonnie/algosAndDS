@@ -20,3 +20,22 @@ const anagrams = (str1, str2) => {
   }
   return true;
 }
+
+//refactored with one object
+const anagrams2 = (str1, str2) => {
+  if (str1.length !== str2.length) return false;
+
+  let lookup = {};
+
+  for (let i = 0; i < str1.length; i++) {
+    let char = str1[i];
+    lookup[char] = (lookup[char] || 0) + 1;
+  }
+
+  for (let i = 0; i < str1.length; i++) {
+    let char = str2[i];
+    if (lookup[char]) lookup[char]--;
+    else return false;
+  }
+  return true;
+}
