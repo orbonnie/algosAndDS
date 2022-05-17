@@ -1,4 +1,5 @@
 const isSubsequence = (str1, str2) => {
+  if (!str1) return true;
   let current = 0;
   let next = 1;
 
